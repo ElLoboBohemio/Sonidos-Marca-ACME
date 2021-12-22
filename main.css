@@ -1,0 +1,145 @@
+:root {
+    --bg: hsl(37, 84%, 11%);
+    --borde: hsl(37, 84%, 26%);
+    --amarillo: hsl(36, 69%, 53%);
+    --amarillo-osc: hsl(37, 73%, 61%);
+    --rojo: #da3434;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+.container {
+    width: 100%;
+    height: 88.8vh; /*MEDIDA PERFECTA PARA ENCAJAR SIN SCROLL*/
+    position: relative;
+}
+
+.caja_superior {
+    z-index: 2;
+    width: 100%;
+    height: 12.5%;
+    background-color: var(--borde);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.caja_inferior {
+    z-index: 2;
+    width: 100%;
+    height: 13%;
+    background-color: var(--borde);
+    position: absolute;
+    left: 0;
+    bottom: -13%;
+}
+
+.caja_verticales {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.caja_leyenda {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.verticales{
+    width: calc(100% / 6);
+    height: 100vh;
+}
+
+.vertical-2, .vertical-4{
+    width: calc(100% / 6);
+    background-color: var(--amarillo);
+}
+
+.vertical-3, .vertical-5 {
+    width: calc(100% / 6);
+    background-color: var(--amarillo-osc);
+}
+
+
+button {
+    font-family: Stencil;
+    background-color: transparent;
+    border: none;
+    color: var(--rojo);
+    font-size: 1000%;
+    transform: rotate(15deg);
+}
+
+@media (max-width: 700px) {
+  button{
+    font-size: 750%;
+  }
+}
+
+/*Mobile*/
+@media (max-width: 480px) {
+  button{
+    font-size:500%;
+  }
+  
+  .caja_superior {
+    height: 30%;
+}
+
+.caja_inferior {
+    height: 30%; 
+  }
+  
+.vertical-1 {
+    background-color: var(--amarillo-osc);
+  }
+    .vertical-6{
+    background-color: var(--amarillo);
+  }
+}
+
+/*Animacion 1*/
+.animacion1{
+    animation: shake1 0.5s;
+}
+@keyframes shake1 {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*Animacion 2*/
+.animacion2{
+    animation: shake2 0.5s;
+}
+
+@keyframes shake2 {
+    10%, 90% {transform: translate3d(-1px, 0, 0);}
+    20%, 80% {transform: translate3d(2px, 0, 0);}
+    30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+    40%, 60% {transform: translate3d(4px, 0, 0);}
+}
